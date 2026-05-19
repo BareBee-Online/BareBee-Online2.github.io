@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Player Reviews</title>
+
+                    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+/>
+        <style>
+            :root{
+                --color-dark: #151C35;
+                --color-secondary-dark: #464C70;
+                --color-primary:  #4169E1;
+                --color-text: #8297E2;
+                --color-light: #ebebfb;
+            }
+            body {
+                background-color: rgb(17, 180, 221);
+            }
+            .container {
+                height: 98vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .board {
+                max-width: 987px;
+                width: 100%;
+                background-color: var(--color-dark);
+                text-align: center;
+                border-radius: 8px;
+                padding: 4em 0;
+            }
+            .text-light {
+                color: var(--color-light);
+            }
+            .swiper {
+  width: 600px;
+  height: 300px;
+}
+.swiper .swiper-slide .flex {
+    margin: 3em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.swiper .swiper-slide .comments {
+    background-color: var(--color-light);
+    padding: 1.5em 2em;
+    width: 50%;
+    border-radius: 5px;
+    font-size: .9em;
+    position: relative;
+}
+
+.swiper .swiper-slide .comments::after{
+    content: "";
+    position: absolute;
+    bottom: -19px;
+    left: 45%;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid var(--color-light);
+    z-index: -99;
+}
+
+.swiper .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.swiper .profile img{
+    width: 30%;
+    border-radius: 50%;
+    border: 5px solid var(--color-primary);
+    margin: 10px 0;
+}
+
+.swiper .profile >a {
+    text-decoration: none;
+    color: var(--color-light);
+}
+
+.swiper .profile > span {
+    color: var(--color-text);
+    font-size: .8em;
+}
+
+.swiper .swiper-button-prev, .swiper-button-next {
+    color: var(--color-text);
+}
+
+@media (mid-width:320px) {
+    .board {
+        width: auto;
+    }
+
+    .swiper {
+        width: 320px;
+    }
+
+    .board > h1,p {
+        padding: 0 2em;
+    }
+}
+
+@media (mid-width:768px) {
+    .board {
+        width: 100%;
+    }
+
+    .swiper {
+        width: 600px;
+    }
+
+    .swiper .swiper-button-prev, .swiper-button-next {
+        display: initial;
+    }
+}
+
+.container5 {
+                background-color: #04AA6D;
+            }
+            .container6 {
+                position: absolute;
+                background-color: #f6f6f6;
+                min-width: 80px;
+                border: 1px solid #ddd;
+                z-index: 1;
+                margin-top: -49px;
+                margin-left: 93.5%;
+            }
+            .container6 a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+            .container6 a:hover {background-color: #ddd;}
+            .container7 {
+                position: absolute;
+                background-color: #f6f6f6;
+                min-width: 95px;
+                border: 1px solid #ddd;
+                z-index: 1;
+                margin-top: -49px;
+                margin-left: 87%;
+            }
+            .container7 a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+            .container7 a:hover {background-color: #ddd;}
+            .dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+}
+
+#myInput {
+  box-sizing: border-box;
+  background-image: url('searchicon.png');
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#myInput:focus {outline: 3px solid #ddd;}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+        </style>
+    </head>
+    <body>
+        <div class="container5">
+  <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    <a href="about.html">About</a>
+    <a href="Achievements.html">Achievements</a>
+    <a href="Art.html">Art</a>
+    <a href="Birth.html">Birth</a>
+    <a href="Characters.html">Characters</a>
+    <a href="Concept.html">Concept</a>
+    <a href="Devs.html">Devs</a>
+    <a href="DevHistory.html">Dev History</a>
+    <a href="LostMedia.html">Lost Media</a>
+    <a href="Levels.html">Levels</a>
+    <a href="UserPlayrate.html">Your Playtime</a>
+    <a href="home.html">Home</a>
+  </div>
+</div>
+<div class="container6">
+  <a href="Login.html">Login</a>
+</div>
+<div class="container7">
+  <a href="Signup.html">Sign up</a>
+</div>
+</div>
+        <div class="container">
+            <div class="board">
+                <h1 class="text-light">While the game is currently in alpha, the devs have asked for player reviews.</h1>
+<div class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide">
+        <div class="flex">
+            <div class="comments">
+                This game was awesome, hopefully the updates roll out a bit more. Would love to play more of this.
+            </div>
+            <div class="profile">
+                <img src="Test1.webp">
+                <a href="#">Tester 1</a>
+                <span>Play Tester 1</span>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-slide">
+        <div class="flex">
+            <div class="comments">
+                This game was a heartbreaker, would like more content
+            </div>
+            <div class="profile">
+                <img src="Test2.webp">
+                <a href="#">Tester 2</a>
+                <span>Play Tester 2</span>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-slide">
+        <div class="flex">
+            <div class="comments">
+                Enjoyed the side missions, would love more
+            </div>
+            <div class="profile">
+                <img src="Test3.webp">
+                <a href="#">Tester 3</a>
+                <span>Play Tester 3</span>
+            </div>
+        </div>
+    </div>
+    ...
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- If we need scrollbar -->
+  <div class="swiper-scrollbar"></div>
+</div>
+            </div>
+        </div>
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script>
+    const swiper = new Swiper('.swiper', {
+  direction: 'horizontal',
+  loop: true,
+
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+  const input = document.getElementById("myInput");
+  const filter = input.value.toUpperCase();
+  const div = document.getElementById("myDropdown");
+  const a = div.getElementsByTagName("a");
+  for (let i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+</script>
+</html>

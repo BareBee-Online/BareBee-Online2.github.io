@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Own Review</title>
+        <style>
+            body {
+                font-size: larger;
+                background-color: rgb(17, 180, 221);
+            }
+            h1 {
+                text-align: center;
+            }
+            .container {
+              background-color: #fff;
+              padding: 20px;
+              width: 300px;
+              border-radius: 8px;
+              box-shadow: 0px 4px 10px rgb(0, 0, 0.1);
+              text-align: center;
+              margin-left: 75%;
+            }
+            h2 {
+              margin-bottom: 10px;
+              text-align: left;
+            }
+            textarea {
+              width: 100%;
+              height: 80px;
+              font-family: Arial;
+              margin-top: 10px;
+              padding: 10px;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+              resize: none;
+              box-sizing: border-box;
+            }
+            button {
+              width: 100%;
+              padding: 10px;
+              margin-top: 10px;
+              background: #0073e6;
+              border: none;
+              color: #fff;
+              font-size: 16px;
+              cursor: pointer;
+              border-radius: 5px;
+              transition: background 0.3s;
+            }
+            button:hover {
+              background: #055bb5;
+            }
+            .container5 {
+                background-color: #04AA6D;
+            }
+            .container6 {
+                position: absolute;
+                background-color: #f6f6f6;
+                min-width: 80px;
+                border: 1px solid #ddd;
+                z-index: 1;
+                margin-top: -49px;
+                margin-left: 93.5%;
+            }
+            .container6 a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+            .container6 a:hover {background-color: #ddd;}
+            .container7 {
+                position: absolute;
+                background-color: #f6f6f6;
+                min-width: 95px;
+                border: 1px solid #ddd;
+                z-index: 1;
+                margin-top: -49px;
+                margin-left: 87%;
+            }
+            .container7 a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+            .container7 a:hover {background-color: #ddd;}
+            .dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+}
+
+#myInput {
+  box-sizing: border-box;
+  background-image: url('searchicon.png');
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#myInput:focus {outline: 3px solid #ddd;}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+        </style>
+    </head>
+    <body>
+        <div class="container5">
+  <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    <a href="about.html">About</a>
+    <a href="Achievements.html">Achievements</a>
+    <a href="Art.html">Art</a>
+    <a href="Birth.html">Birth</a>
+    <a href="Characters.html">Characters</a>
+    <a href="Concept.html">Concept</a>
+    <a href="Devs.html">Devs</a>
+    <a href="DevHistory.html">Dev History</a>
+    <a href="LostMedia.html">Lost Media</a>
+    <a href="Levels.html">Levels</a>
+    <a href="PlayerReviews.html">Player Reviews</a>
+    <a href="home.html">Home</a>
+  </div>
+</div>
+<div class="container6">
+  <a href="Login.html">Login</a>
+</div>
+<div class="container7">
+  <a href="Signup.html">Sign up</a>
+</div>
+</div>
+        <h1>Please Enter Playrate below.</h1>
+        <div class="container">
+          <h2>Enter your Review</h2>
+          <form action="#">
+            <textarea name="#" id="#" placeholder="Write your feedback" required></textarea>
+
+            <button type="submit">Submit Review</button>
+          </form>
+        </div>
+    </body>
+</html>
+<div id="myPlot" style="width:100%;max-width:700px;margin-top: -16.5%;"></div>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <form id="form">
+            <input type="number" id="x1" class="input">X1<br>
+            <input type="number" id="y1" class="input">Y1<br>
+            <input type="number" id="x2" class="input">X2<br>
+            <input type="number" id="y2" class="input">Y2<br>
+        </form>
+        <script>
+            let xArray = []
+            let yArray = []
+            for (let i=1;i<3;i++){
+                let x = document.getElementById("x"+String(i)).value;
+                let y = document.getElementById("y"+String(i)).value;
+                if(x == null || y==null){}
+                else{xArray.push(Number(x))}
+                if(y == null || x==null){}
+                else{yArray.push(Number(y))}
+           
+            }
+            const data = [{
+                x: xArray,
+                y: yArray,
+                mode:"lines"
+                }];
+                const layout = {
+                xaxis: {range: [1, 16], title: "Days of Playing"},
+                yaxis: {range: [0, 24], title: "Hours of Playtime"},  
+                title: "Hours of playtime per Days of playing"
+                };
+                Plotly.newPlot("myPlot", data, layout);
+            inputs = document.getElementsByClassName("input")
+            for(let j=0;j<4;j++){
+                inputs[j].addEventListener("change", function(){
+                let xArray = [];
+            let yArray = [];
+            for (let i=1;i<3;i++){
+                let x = document.getElementById("x"+String(i)).value;
+                let y = document.getElementById("y"+String(i)).value;
+                if(x == null || y==null){return}
+                else{xArray.push(Number(x))}
+                if(y == null || x==null){return}
+                else{yArray.push(Number(y))}
+           
+            }
+                const data = [{
+                x: xArray,
+                y: yArray,
+                mode:"lines"
+                }];
+                const layout = {
+                xaxis: {range: [1, 16], title: "Days of Playing"},
+                yaxis: {range: [0, 24], title: "Hours of Playtime"},  
+                title: "Hours of Playtime per Days of Playing"
+                };
+                Plotly.newPlot("myPlot", data, layout);
+            });
+        }
+        function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+  const input = document.getElementById("myInput");
+  const filter = input.value.toUpperCase();
+  const div = document.getElementById("myDropdown");
+  const a = div.getElementsByTagName("a");
+  for (let i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+        </script>
